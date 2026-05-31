@@ -4,7 +4,7 @@
 ![Prediction Results](images/comparison_2.png)
 ![Prediction Results](images/comparison_3.png)
 
-Fine-tuning [Segment Anything Model (SAM)](https://segment-anything.com/) with lightweight **bottleneck adapters** for **Camouflaged Object Detection** on the COD10K dataset. By injecting small adapter modules into SAM's ViT-B image encoder, we achieve competitive segmentation performance while training only **~0.5% of total parameters**.
+Fine-tuning [Segment Anything Model (SAM)](https://segment-anything.com/) with lightweight **bottleneck adapters** for **Camouflaged Object Detection** on the COD10K dataset. By injecting small adapter modules into SAM's ViT-B image encoder, we achieve competitive segmentation performance while training only **~1.2% of total parameters**.
 
 ---
 
@@ -205,17 +205,14 @@ We evaluate with the standard camouflaged object detection metrics:
 
 ## Results
 
-<!-- 請填入你的實際實驗結果 -->
-
-| Model | Sa | Fbw | MAE | Emx | Fmx | Trainable Params |
+| Model | S<sub>α</sub> ↑ | F<sub>β</sub><sup>ω</sup> ↑ | MAE ↓ | E<sub>max</sub> ↑ | F<sub>max</sub> ↑ | Trainable Params |
 |---|---|---|---|---|---|---|
-| SAM ViT-B (frozen) | -- | -- | -- | -- | -- | 0 |
-| + Adapter (all 12 blocks) | -- | -- | -- | -- | -- | ~X |
-| + Adapter (top-k=6) | -- | -- | -- | -- | -- | ~X |
-| + LoRA (blocks 10-11) | -- | -- | -- | -- | -- | ~X |
+| SAM ViT-B (frozen) | 0.585 | 0.353 | 0.108 | 0.535 | 0.423 | 0 |
+| + Adapter (all 12 blocks) | 0.957 | 0.437 | 0.012 | 0.990 | 0.456 | ~1.2M |
+| + Adapter (top-k=6) | 0.883 | 0.372 | 0.055 | 0.984 | 0.405 | ~0.6M |
+| + LoRA (blocks 10-11) | 0.839 | 0.767 | 0.032 | 0.607 | 0.334 | ~49K |
 
-<!-- 取消註解以顯示 loss curve -->
-<!-- ![Training Loss Curve](loss_curve.png) -->
+![Training Loss Curve](images/loss_curve.png)
 
 ---
 
