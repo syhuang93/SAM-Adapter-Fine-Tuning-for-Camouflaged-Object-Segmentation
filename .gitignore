@@ -1,0 +1,16 @@
+dataset/
+Docs/
+Literature/
+__pycache__/
+*.pyc
+.env
+venv/
+.venv/
+.ipynb_checkpoints/
+visualize_comparison.py
+*.xlsx
+*.pdf
+*.ipynb
+.vscode/
+COD10K-v3/
+checkpoints/

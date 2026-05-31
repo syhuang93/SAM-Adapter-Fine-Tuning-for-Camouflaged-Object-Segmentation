@@ -1,0 +1,9 @@
+torch>=2.0
+torchvision>=0.15
+numpy
+scipy
+Pillow
+tqdm
+matplotlib
+psutil
+segment-anything @ git+https://github.com/facebookresearch/segment-anything.git
