@@ -18,7 +18,7 @@ pip install -r requirements.txt
 python train.py
 
 # Train with custom config
-python train.py --bottleneck 128 --topk 6 --no-zero-init
+python train.py --bottleneck 128 --topk 6
 
 # Evaluate on test set
 python eval.py --checkpoint outputs/best_adapter_all_bn64.pth --model-type adapter
@@ -49,7 +49,7 @@ This is a group project for CS 566 (Deep Learning). My responsibilities include:
 
 - **Adapter Module** — Designed and implemented the bottleneck adapter architecture with zero-initialization strategy, ensuring the model starts from SAM's original behavior and gradually learns task-specific features
 - **Training Pipeline** — Built the end-to-end training loop with mixed-precision training (`torch.amp`), cosine annealing LR scheduler, and a combined BCE + Dice loss for handling class imbalance in camouflaged scenes
-- **Evaluation Framework** — Implemented a comprehensive evaluation suite with standard COD metrics: S-measure (Sa), weighted F-measure (Fbw), E-measure, MAE, and multiple thresholding strategies (adaptive, mean, max)
+- **Evaluation Framework** — Implemented a comprehensive evaluation suite with standard COD metrics: S-measure (S<sub>α</sub>), weighted F-measure (F<sub>β</sub><sup>ω</sup>), E-measure, MAE, and multiple thresholding strategies (adaptive, mean, max)
 - **Ablation Study** — Conducted experiments comparing full-block vs. top-k adapter injection to analyze the trade-off between parameter efficiency and segmentation quality
 
 ---
